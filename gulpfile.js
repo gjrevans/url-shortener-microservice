@@ -2,7 +2,6 @@
 // Dependencies
 var gulp         = require('gulp'),
 	nodemon      = require('gulp-nodemon'),
-	notify       = require('gulp-notify'),
 	livereload   = require('gulp-livereload'),
 	changed      = require('gulp-changed'),
 	del          = require('del'),
@@ -43,8 +42,7 @@ var onError = function (err) {
             ext: 'js'
         }).on('restart', function(){
             gulp.src('app.js')
-                .pipe(livereload())
-                .pipe(notify('Reloading page, please wait...'));
+                .pipe(livereload());
         })
 };
 

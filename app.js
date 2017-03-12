@@ -4,7 +4,8 @@ var express = require('express'),
     app = express(),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongo = require('mongodb');
 
 app.set('assets_path', (process.env.NODE_ENV === 'production') ? 'dist' : 'build');
 app.set('views', path.join(__dirname, app.get('assets_path') + '/views'));
@@ -15,7 +16,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, app.get('assets_path'))));
 
-var	routes = require('./routes/index'),
+// Mongo DB
+var mongoUrl = 'mongodb://localhost:27017/short-url';
+mongo.MongoClient.connect(mongoUrl, function(err, db) {
+    if (err) {
+        throw err
+    } else {
+        console.log("Successfull connected to mongo DB");
+    }
+    var collection = db.collection('sites');
+});
+
+var	routes = require('./routes/pages'),
     api_routes = require('./routes/api');
 
 app.set('port', process.env.PORT || 8000);
