@@ -3,12 +3,20 @@
 {% block content %}
 <div class="container page-content">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 text-center">
 			<h3>Simple URL Shortener</h3>
-			<p>Your URL is looking pretty long there weary traveler. Ever thought about shortening it to lighten your load? Well, now you can.</p>
+			<p>Your URL is looking pretty long there weary traveler. Ever thought about shortening it to lighten your load? Well, now you can. Shortening your url is simple, simply enter the URL you'd like to shorten below and our service provide you with a shortened url.</p>
 
-			<h3>Useage Instructions</h3>
-			<p>Shortening your url is simple, simply visit <code>https://urlshortener.gjrevans.com/api/your-url-goes-here</code> and our service will return you a shortened url.</p>
+			<!-- Form to submit url -->
+			<div class="col-md-4 offset-md-4">
+				<form method="post" action="/u/shorten">
+					<div class="form-group mr-sm-3">
+						<input type="text" name="url" class="form-control">
+					</div>
+					<button type="submit" class="btn btn-primary" placeholder="https://yoururlhere.com/as-long-as-you-like">Submit</button>
+				</form>
+			</div>
+
 		</div>
 	</div>
 </div>

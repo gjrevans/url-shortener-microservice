@@ -25,9 +25,10 @@ function randomNumber() {
 }
 
 // The path will shorten the url
-router.get('/shorten/*', function(req, res) {
-    var input_url = req.params[0],
+router.post('/shorten', function(req, res) {
+    var input_url = req.body.url,
     response;
+    console.log(input_url);
     if(!checkUrl(input_url)){
         response = {
             error: "Thats not a url shit head!"
@@ -44,6 +45,7 @@ router.get('/shorten/*', function(req, res) {
 
 // Redirect the user to the original site
 router.get('/:id', function (req, res) {
+    console.log("hello");
     var url = process.env.BASE_URL + req.params.id;
     var sites = db.sites;
     sites.findOne({
@@ -52,6 +54,6 @@ router.get('/:id', function (req, res) {
         if (err) throw err;
         res.redirect(result.original);
     });
-})
+});
 
 module.exports = router;
