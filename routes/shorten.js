@@ -38,8 +38,8 @@ router.post('/shorten', function(req, res) {
             original: input_url,
             shortened: process.env.BASE_URL + randomNumber()
         }
+        saveUrl(response);
     }
-    saveUrl(response);
     res.send(response);
 });
 
