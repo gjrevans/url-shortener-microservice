@@ -46,7 +46,7 @@ var onError = function (err) {
         })
 };
 
-if(process.env.NODE_ENV === 'prod'){
+if(process.env.NODE_ENV === 'production'){
 	gulp.task('default', ['dist']);
 }else {
 	gulp.task('default', ['build', 'watch']);
