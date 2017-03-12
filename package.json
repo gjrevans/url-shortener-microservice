@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo \"Starting server\" && NODE_ENV=production gulp",
+    "start": "echo \"Starting server\" && NODE_ENV=production node app.js",
     "postinstall": "gulp dist"
   },
   "author": "hello@gjrevans.com",
