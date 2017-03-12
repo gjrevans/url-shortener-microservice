@@ -1,0 +1,4 @@
+{
+    "MONGO_URL": "a-mongo-url",
+    "BASE_URL": "localhost:8000/api/"
+}

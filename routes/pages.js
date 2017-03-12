@@ -3,7 +3,7 @@ var express = require('express'),
 
 router.get('/', function(req, res) {
     res.render('index.html', { page: {
-            name: 'Home' // config used in view. nunjuck compile this config
+            name: 'Home'
         }
     });
 });
