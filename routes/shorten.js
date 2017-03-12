@@ -18,7 +18,7 @@ function saveUrl(site) {
     });
 }
 
-// Creates a random number
+// Creates a random 5 digit number
 function randomNumber() {
     var num = Math.floor(100000 + Math.random() * 900000);
     return num.toString().substring(0, 5);
@@ -27,17 +27,17 @@ function randomNumber() {
 // The path will shorten the url
 router.post('/shorten', function(req, res) {
     var input_url = req.body.url,
-    response;
-    console.log(input_url);
+        response;
     if(!checkUrl(input_url)){
         response = {
-            error: "Thats not a url shit head!"
+            error: "Incorrect URL format. Please use https://yoururl.com or http://another-url.com"
         }
     } else {
         response = {
             original: input_url,
             shortened: process.env.BASE_URL + randomNumber()
         }
+        // Only save the response if its a real url
         saveUrl(response);
     }
     res.send(response);
