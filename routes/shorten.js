@@ -1,8 +1,7 @@
 var express = require('express'),
     router = express.Router(),
     mongojs = require('mongojs'),
-    config = require('../config.json');
-    db = mongojs(process.env.MONGO_URL || config.MONGO_URL, ['sites']);
+    db = mongojs(process.env.MONGO_URL, ['sites']);
 
 // Helper to test if the url is valid
 function checkUrl(url){
@@ -36,7 +35,7 @@ router.get('/shorten/*', function(req, res) {
     } else {
         response = {
             original: input_url,
-            shortened: process.env.BASE_URL || config.BASE_URL + randomNumber()
+            shortened: process.env.BASE_URL + randomNumber()
         }
     }
     saveUrl(response);
@@ -45,7 +44,7 @@ router.get('/shorten/*', function(req, res) {
 
 // Redirect the user to the original site
 router.get('/:id', function (req, res) {
-    var url = process.env.BASE_URL || config.BASE_URL + req.params.id;
+    var url = process.env.BASE_URL + req.params.id;
     var sites = db.sites;
     sites.findOne({
         "shortened": url

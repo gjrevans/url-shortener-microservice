@@ -5,7 +5,6 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    config = require('./config.json');
 
 app.set('assets_path', (process.env.NODE_ENV === 'production') ? 'dist' : 'build');
 app.set('views', path.join(__dirname, app.get('assets_path') + '/views'));
