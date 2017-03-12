@@ -6,8 +6,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo \"Starting server\" && node app.js && gulp",
-    "postinstall": "gulp default"
+    "start": "echo \"Starting server\" && NODE_ENV=production gulp",
+    "postinstall": "gulp dist"
   },
   "author": "hello@gjrevans.com",
   "license": "ISC",

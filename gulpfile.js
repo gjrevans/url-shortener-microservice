@@ -60,9 +60,7 @@ gulp.task('build', ['build-html', 'build-css', 'build-js', 'build-images', 'buil
     nodemonServerInit();
 });
 
-gulp.task('dist', ['dist-html', 'dist-js', 'dist-css', 'dist-images', 'dist-favicon', 'dist-fonts'], function (cb) {
-    nodemonServerInit();
-});
+gulp.task('dist', ['dist-html', 'dist-js', 'dist-css', 'dist-images', 'dist-favicon', 'dist-fonts']);
 
 /*
 HTML Tasks
